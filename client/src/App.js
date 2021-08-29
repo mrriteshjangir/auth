@@ -18,13 +18,11 @@ function App() {
   let a = 1;
   if (!token || token.error) {
     if (
-      window.location.href !== "http://localhost:3000/" &&
-      window.location.href !== "http://localhost:3000/sign-up"
-    ) {
-      if (a === 1) {
-        a++;
-        alert("You are not logged in !");
-      }
+        window.location.href !== "http://localhost:3000/" &&
+        window.location.href !== "http://localhost:3000/sign-up"
+    ) 
+    {
+      alert("You are not logged in !");
     }
     return (
       <Router>
