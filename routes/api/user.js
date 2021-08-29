@@ -14,9 +14,9 @@ router.post('/', (req, res) => {
       }
       else {
         if (userpassword === user.userpassword) {
-          const sessUser = { username: user.username, useremail: user.useremail };
+          const sessUser = { username: user.username, useremail: user.useremail,profile:user.profile };
 
-          res.status(200).json(user.id);
+          res.status(200).json(sessUser);
         }
         else {
           res.status(400).json("Incorrect Password");
