@@ -3,8 +3,7 @@ import useToken from '../components/useToken';
 import Logout from '../components/Logout';
 
 export default function Dashboard() {
-    const { token, setToken } = useToken();
-    //const { myfile }=require(`../images/${token.profile}`);
+    const { token} = useToken();
     return (
         <div>
             <img src={process.env.PUBLIC_URL + 'images/'+token.photo} style={{height:"200px"}} alt="My user profile" />
