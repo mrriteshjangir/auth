@@ -10,25 +10,25 @@ router.post('/', (req, res) => {
   Signup.findOne({ useremail })
     .then(user => {
       if (!user) {
-        res.status(404).json({ error: "User not found" });
+        res.status(404).json({error:"User not found"});
       }
       else {
         if (userpassword === user.userpassword) {
-          const sessUser = { username: user.username, useremail: user.useremail,profile:user.profile };
+          const sessUser = { userid: user.id,username: user.username, useremail: user.useremail,photo:user.photo };
 
           res.status(200).json(sessUser);
         }
         else {
-          res.status(400).json("Incorrect Password");
+          res.status(400).json({error:"Incorrect Password"});
         }
       }
     })
-    .catch(err => res.status(400).json({ error: "No record found" }));
+    .catch(err => res.status(400).json({error:"No record found"}));
 });
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'client/src/images');
+        cb(null, 'client/public/images');
     },
     filename: function(req, file, cb) {   
         cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));

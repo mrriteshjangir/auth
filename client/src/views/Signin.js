@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import propTypes from "prop-types";
 import md5 from "md5";
+import swal from "sweetalert";
 
 async function loginUser(credentials) {
   return fetch("http://localhost:5000/api/user/", {
@@ -25,6 +26,19 @@ export default function Signin({ setToken }) {
       userpassword,
     });
     setToken(token);
+    if(!token || token.error) 
+    {
+      swal({
+        title: "Not Found",
+        text: "Account does not exist!",
+        icon: "error",
+        button: "Cancel",
+      });
+    }
+    else
+    {
+      window.location.reload();
+    }
   };
 
   return (
