@@ -26,6 +26,7 @@ export default function Signin({ setToken }) {
       userpassword,
     });
     setToken(token);
+
     if(!token || token.error) 
     {
       swal({
@@ -37,7 +38,7 @@ export default function Signin({ setToken }) {
     }
     else
     {
-      window.location.reload();
+      window.location='/dashboard';
     }
   };
 

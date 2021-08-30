@@ -14,8 +14,7 @@ import useToken from "./components/useToken";
 
 function App() {
   const { token, setToken } = useToken();
-
-  let a = 1;
+  
   if (!token || token.error) {
     if (
         window.location.href !== "http://localhost:3000/" &&
